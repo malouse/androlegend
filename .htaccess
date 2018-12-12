@@ -1,3 +1,9 @@
+<Files wp-login.php>
+Order Deny,Allow
+Deny from all
+Allow from all
+</Files>
+
 
 # BEGIN Really_Simple_SSL_HSTS
 <IfModule mod_headers.c>
