@@ -1276,10 +1276,10 @@
 #rev-cpicker-scroller {
 	
 	display: inline-block;
-    position: absolute;
+    position: relative;
     vertical-align: top;
-    top: 98px;
-	left: 272px;
+    top: 16px;
+	left: -14px;
 	height: 191px;
 	border-radius: 4px;
 	box-sizing: border-box;

@@ -66,3 +66,23 @@
 
 2018-12-12T10:58:23+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions//modules/post-formats/post-formats.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions\techmarket-extensions.php on line 129
 
+2018-12-12T11:07:00+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions//modules/post-formats/post-formats.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions\techmarket-extensions.php on line 129
+
+2018-12-12T11:11:11+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions//modules/post-formats/post-formats.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions\techmarket-extensions.php on line 129
+
+2018-12-12T11:18:56+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions//modules/post-formats/post-formats.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions\techmarket-extensions.php on line 129
+
+2018-12-12T11:21:15+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions//modules/post-formats/post-formats.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions\techmarket-extensions.php on line 129
+
+2018-12-12T11:21:21+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions//modules/post-formats/post-formats.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions\techmarket-extensions.php on line 129
+
+2018-12-12T11:28:44+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions//modules/post-formats/post-formats.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions\techmarket-extensions.php on line 129
+
+2018-12-12T11:31:37+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions//modules/post-formats/post-formats.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions\techmarket-extensions.php on line 129
+
+2018-12-12T12:15:48+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions//modules/post-formats/post-formats.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions\techmarket-extensions.php on line 129
+
+2018-12-12T12:15:48+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions//modules/post-formats/post-formats.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions\techmarket-extensions.php on line 129
+
+2018-12-12T12:15:48+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions//modules/post-formats/post-formats.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\techmarket-extensions\techmarket-extensions.php on line 129
+

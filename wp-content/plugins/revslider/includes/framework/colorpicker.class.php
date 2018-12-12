@@ -2,7 +2,6 @@
 /**
  * @author    ThemePunch <info@themepunch.com>
  * @link      http://www.themepunch.com/
- * @version: 1.0.5 (13.6.2018)
  * @copyright 2017 ThemePunch
  */
 
@@ -19,13 +18,9 @@ if(!class_exists('TPColorpicker')){
 			add_filter(AJAX_ACTION, array($this, 'init_ajax'), 10, 6);
 		}
 		
-		/**
-		 * @since 5.3.1.6
-		 */
-		public static $isColor = '/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i';
 
 		/**
-		 * best option for frontend
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function get($val) {
@@ -37,7 +32,7 @@ if(!class_exists('TPColorpicker')){
 	    }
 		
 		/**
-		 * return usable CSS value from stored color data value
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function parse($val, $prop, $returnColorType){
@@ -55,7 +50,7 @@ if(!class_exists('TPColorpicker')){
 
 
 		/**
-		 * convert hex and opacity to rgba
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function convert($color, $opacity){
@@ -69,7 +64,7 @@ if(!class_exists('TPColorpicker')){
 				return 'transparent';
 			} 
 
-			if($opacity==-1 || !$opacity || empty($opacity) || !is_numeric($opacity) || $color == "transparent" || $opacity === 1 || $opacity == 100 ) {
+			if($opacity==-1 || !$opacity || empty($opacity) || !is_numeric($opacity) || $color == "transparent" || $opacity === 1 || $opacity === 100 ) {
 				if(strpos($color,'rgba') === false && strpos($color,'#') !== false) {
 					return TPColorpicker::processRgba(TPColorpicker::sanitizeHex($color), $opacity);
 				}
@@ -92,27 +87,22 @@ if(!class_exists('TPColorpicker')){
 				return TPColorpicker::processRgba(TPColorpicker::sanitizeHex($color), $opacity);
 				
 			}
-			else if(strpos($color, 'rgb') !== false) {		
-
+			else {		
 				$color = TPColorpicker::rgbValues($color, 3);
 				return TPColorpicker::rgbaString($color[0], $color[1], $color[2], $opacity);
 				
 			}
-			
-			return 'transparent';
-			
 		}
 
 
 		/**
-		 * core function for converting ColorPicker input values
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
-		public static function process($clr, $processColor = false){
-			
-			if(empty($clr)) return array('transparent', 'transparent');
+		public static function process($clr, $processColor){
 
-			if(!is_string($clr) ) {
+
+			if( !is_string($clr) ) {
 				if($processColor) $clr = TPColorpicker::sanatizeGradient($clr);
 				return array( TPColorpicker::processGradient($clr), 'gradient', $clr );
 			}
@@ -144,22 +134,16 @@ if(!class_exists('TPColorpicker')){
 				return array($clr, 'rgba');
 				
 			}
-			else if( strpos($clr,'rgb') !== false ) {
+			else {
 				$clr = preg_replace('/\s+/', '', $clr);
 				return array($clr, 'rgb');
 				
 			}
-			else if(preg_match(TPColorpicker::$isColor, $clr) !== false) {
-				$clr = preg_replace('/\s+/', '', $clr);
-				return array($clr, 'hex');
-			}
-			
-			return array('transparent', 'transparent');
 
 		}
 
 		/**
-		 * clean up duplicate values in gradient
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function sanatizeGradient($obj) {
@@ -198,7 +182,7 @@ if(!class_exists('TPColorpicker')){
 		}
 
 		/**
-		 * convert gradient object to CSS background gradient value
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function processGradient($obj){
@@ -222,7 +206,7 @@ if(!class_exists('TPColorpicker')){
 
 
 		/**
-		 * convert rgb values to CSS value
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function rgbValues($values, $num) {
@@ -240,7 +224,7 @@ if(!class_exists('TPColorpicker')){
 		}
 
 		/**
-		 * convert rgba data values to CSS value
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function rgbaString($r, $g, $b, $a) {
@@ -253,7 +237,7 @@ if(!class_exists('TPColorpicker')){
 		}
 
 		/**
-		 * convert rgb to hex
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function rgbToHex($clr) {
@@ -264,7 +248,7 @@ if(!class_exists('TPColorpicker')){
 		}
 
 		/**
-		 * convert rgba to hex
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function rgbaToHex($clr) {
@@ -276,7 +260,7 @@ if(!class_exists('TPColorpicker')){
 		}
 
 		/**
-		 * get opacity value from rgba
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function getOpacity($val){
@@ -285,7 +269,7 @@ if(!class_exists('TPColorpicker')){
 		}
 
 		/**
-		 * convert rgb to hex
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function getRgbToHex($r, $g, $b){
@@ -298,7 +282,7 @@ if(!class_exists('TPColorpicker')){
 		}
 
 		/**
-		 * convert hex and opacity values to rgba
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function joinToRgba($val){
@@ -307,7 +291,7 @@ if(!class_exists('TPColorpicker')){
 		}
 
 		/**
-		 * convert hex to rgba
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function processRgba($hex, $opacity=false){
@@ -334,7 +318,7 @@ if(!class_exists('TPColorpicker')){
 		}
 
 		/**
-		 * sanitize hex color values
+		 * TODO: What does it do?
 		 * @since 5.3.1.6
 		 */
 		public static function sanitizeHex($hex){

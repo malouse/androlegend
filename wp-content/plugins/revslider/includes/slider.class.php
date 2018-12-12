@@ -27,7 +27,7 @@ class RevSliderSlider extends RevSliderElementsBase{
 	private $alias;
 	private $arrParams;
 	private $settings;
-	private $arrSlides = array();
+	private $arrSlides = null;
 	
 	public function __construct(){
 		parent::__construct();
@@ -2383,14 +2383,13 @@ class RevSliderSlider extends RevSliderElementsBase{
 				$slideTemplates = $this->getSlidesFromGallery($publishedOnly); //reset as clone did not work properly
 				$slideTemplates = RevSliderFunctions::assocToArray($slideTemplates);
 			}
-			
+
 			$slide = new RevSlide();
 			$slide->initByPostData($postData, $slideTemplate, $this->id);
 			$arrSlides[] = $slide;
 		}
 		
 		$this->arrSlides = $arrSlides;
-		
 		
 		return($arrSlides);
 	}
@@ -2717,6 +2716,7 @@ class RevSliderSlider extends RevSliderElementsBase{
 			$cur_lang = apply_filters( 'wpml_current_language', null );
 			$wpml_current_language = apply_filters( 'wpml_current_language', null );
 			do_action( 'wpml_switch_language', $lang );
+			
 		}
 		
 		if($isSlidesFromPosts){
@@ -2731,7 +2731,7 @@ class RevSliderSlider extends RevSliderElementsBase{
 			do_action( 'wpml_switch_language', $cur_lang );
 		}
 		
-		if($lang == 'all' || $isSlidesFromStream) // || $isSlidesFromPosts
+		if($lang == 'all' || $isSlidesFromPosts || $isSlidesFromStream)
 			return($arrParentSlides);
 		
 		$arrSlides = array();
@@ -2744,11 +2744,6 @@ class RevSliderSlider extends RevSliderElementsBase{
 			$arrChildren = $parentSlide->getArrChildren();
 			foreach($arrChildren as $child){
 				$childLang = $child->getLang();
-				
-				
-				//echo $childLang .'||'. $lang.'--';
-				
-				
 				if($childLang == $lang){
 					$arrSlides[] = $child;
 					$childAdded = true;
@@ -2882,7 +2877,7 @@ class RevSliderSlider extends RevSliderElementsBase{
 	 */
 	public function getNumSlides($publishedOnly = false){
 		
-		if(empty($this->arrSlides))
+		if($this->arrSlides == null)
 			$this->getSlides($publishedOnly);
 		
 		$numSlides = count($this->arrSlides);
@@ -2895,7 +2890,7 @@ class RevSliderSlider extends RevSliderElementsBase{
 	 */
 	public function getNumSlidesRaw($publishedOnly = false){
 		
-		if(empty($this->arrSlides)){
+		if($this->arrSlides == null){
 			$ret = $this->getSlidesCountRaw($publishedOnly);
 			$numSlides = count($ret);
 		}else{
@@ -3470,16 +3465,9 @@ class RevSliderSlider extends RevSliderElementsBase{
 		
 		
 		$arrAddition = array_merge($arrAddition, RevSliderWooCommerce::getMetaQuery($this->getParams()));
-		$tax_addition = array();
-		
-		if(isset($arrAddition['tax_query'])){
-			$tax_addition = $arrAddition['tax_query'];
-			unset($arrAddition['tax_query']);
-		}
-		
 		
 		$slider_id = $this->getID();
-		$arrPosts = RevSliderFunctionsWP::getPostsByCategory($slider_id, $catIDs,$sortBy,$sortDir,$maxPosts,$postTypes,$taxonomies,$arrAddition,$tax_addition);
+		$arrPosts = RevSliderFunctionsWP::getPostsByCategory($slider_id, $catIDs,$sortBy,$sortDir,$maxPosts,$postTypes,$taxonomies,$arrAddition);
 		
 		return($arrPosts);
 	}

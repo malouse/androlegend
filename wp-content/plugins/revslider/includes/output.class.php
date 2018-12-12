@@ -487,7 +487,6 @@ class RevSliderOutput {
 		}
 		
 		$index = 0;
-		
 		foreach($slides as $slide){
 			
 			$params = $slide->getParams();
@@ -1065,14 +1064,10 @@ class RevSliderOutput {
 				$staticoverflow = $this->static_slide->getParam('staticoverflow', '');
 				if (!empty($staticoverflow) && $staticoverflow=="hidden")
 					$htmlstaticoverflow = 'overflow:hidden;width:100%;height:100%;top:0px;left:0px;';
-				
-				// new static layers position option
-				$staticlayserposition = '';
-				$staticlayserpos = $this->static_slide->getParam('staticlayersposition', 'front');
-				if(!empty($staticlayserpos) && $staticlayserpos === 'back') $staticlayserposition = ' tp-static-layers-back';
+
 				
 				//check for static layers
-				echo '<div style="'.$htmlstaticoverflow.'" class="tp-static-layers' . $staticlayserposition . '">'."\n";
+				echo '<div style="'.$htmlstaticoverflow.'" class="tp-static-layers">'."\n";
 				$this->slide = $this->static_slide;
 				
 				$this->putCreativeLayer(true);
@@ -1564,7 +1559,6 @@ class RevSliderOutput {
 		$dbw = '0px 0px 0px 0px';
 		$dbr = '0px 0px 0px 0px';
 		$dc = 'auto';
-		$pe = 'auto';
 		
 		$dfos = false;
 		$dlh = false;
@@ -1617,7 +1611,6 @@ class RevSliderOutput {
 				$dbr = (isset($this->in_class_usage[trim($class)]['params']->{'border-radius'})) ? $this->in_class_usage[trim($class)]['params']->{'border-radius'} : $dbr;
 				if(is_array($dbr)) $dbr = implode(' ', $dbr);
 				$dc = (isset($this->in_class_usage[trim($class)]['params']->{'css_cursor'})) ? $this->in_class_usage[trim($class)]['params']->{'css_cursor'} : $dc;
-				$pe = (isset($this->in_class_usage[trim($class)]['params']->{'pointer_events'})) ? $this->in_class_usage[trim($class)]['params']->{'pointer_events'} : $pe;
 				
 			}
 		}
@@ -1660,10 +1653,6 @@ class RevSliderOutput {
 		$layer_selectable = RevSliderFunctions::getVal($layer, 'layer-selectable', 'default');
 		
 		$outputClass = 'tp-caption '. trim($class);
-		
-		$d_hovers = (array) RevSliderFunctions::getVal($layer, 'deformation-hover', array());
-		$pointerevents = RevSliderFunctions::getVal($d_hovers, 'pointer_events', 'auto');
-		if($pointerevents == 'none') $outputClass .= ' tp-no-events';
 		
 		$outputClass = trim($outputClass) . ' ' . $internal_class . ' ';
 		if ($layer_selectable !== "default"){
@@ -1841,8 +1830,7 @@ class RevSliderOutput {
 				}
 
 				$svg_val = RevSliderFunctions::getVal($layer, 'svg', false);
-				$svg_val = (array)$svg_val;
-				
+
 				$static_styles = RevSliderFunctions::getVal($layer, 'static_styles', array());
 				
 				if(!empty($static_styles)){
@@ -3349,13 +3337,6 @@ class RevSliderOutput {
 			$st_idle['cursor']  =  array($css_cursor, 'auto');
 		}
 		
-		//add the pointer_events to the idle styles
-		$pointer_events = RevSliderFunctions::getVal($def_val_h, 'pointer_events', 'auto');
-		
-		if(trim($pointer_events) !== '' && $pointer_events !== 'auto'){
-			$st_idle['pointer-events']  =  array($pointer_events, 'auto');
-		}
-		
 		$def_string = '';
 		foreach($def as $key => $value){
 			if(trim($value[0]) == '' || $value[0] == $value[1]) continue;
@@ -4073,7 +4054,7 @@ class RevSliderOutput {
 			}
 		}
 		
-		if (!empty($svg_val) && is_array($svg_val) && sizeof($svg_val)>0) $outputClass .=' tp-svg-layer'; 
+		if (!empty($svg_val) &&  sizeof($svg_val)>0) $outputClass .=' tp-svg-layer'; 
 		
 		$layer_id = $this->zIndex - 4;
 		
@@ -4120,11 +4101,11 @@ class RevSliderOutput {
 		echo $a_html;
 		
 		// SVG OUTPUT
-		if (!empty($svg_val) && is_array($svg_val) && sizeof($svg_val)>0){
-			echo '			data-svg_src="'.$svg_val['src'].'"'." \n";
-			echo '			data-svg_idle="sc:'.$svg_val['svgstroke-color'].';sw:'.$svg_val['svgstroke-width'].';sda:'.$svg_val['svgstroke-dasharray'].';sdo:'.$svg_val['svgstroke-dashoffset'].';"'." \n";
+		if (!empty($svg_val) && sizeof($svg_val)>0) {				
+			echo '			data-svg_src="'.$svg_val->{'src'}.'"'." \n";
+			echo '			data-svg_idle="sc:'.$svg_val->{'svgstroke-color'}.';sw:'.$svg_val->{'svgstroke-width'}.';sda:'.$svg_val->{'svgstroke-dasharray'}.';sdo:'.$svg_val->{'svgstroke-dashoffset'}.';"'." \n";
 			if($is_hover_active){
-				echo '			data-svg_hover="sc:'.$svg_val['svgstroke-hover-color'].';sw:'.$svg_val['svgstroke-hover-width'].';sda:'.$svg_val['svgstroke-hover-dasharray'].';sdo:'.$svg_val['svgstroke-hover-dashoffset'].';"'." \n";
+				echo '			data-svg_hover="sc:'.$svg_val->{'svgstroke-hover-color'}.';sw:'.$svg_val->{'svgstroke-hover-width'}.';sda:'.$svg_val->{'svgstroke-hover-dasharray'}.';sdo:'.$svg_val->{'svgstroke-hover-dashoffset'}.';"'." \n";
 			}
 		}
 
@@ -4647,9 +4628,8 @@ class RevSliderOutput {
 		?>
 		<script type="text/javascript">
 <?php if(!$markup_export){ //not needed for html markup export ?>
-if (setREVStartSize!==undefined) setREVStartSize(
-	<?php 
-			echo "{c: '#". $this->sliderHtmlID ."',";
+setREVStartSize(<?php 
+			echo "{c: jQuery('#". $this->sliderHtmlID ."'),";
 			if(isset($csizes['level']) && !empty($csizes['level'])){
 				echo " responsiveLevels: [". $csizes['level'] ."],";
 			}
@@ -4680,12 +4660,10 @@ if (setREVStartSize!==undefined) setREVStartSize(
 			
 <?php } ?>
 var revapi<?php echo $sliderID; ?>,
-	tpj;	
-(function() {			
-	if (!/loaded|interactive|complete/.test(document.readyState)) document.addEventListener("DOMContentLoaded",onLoad); else onLoad();	
-	function onLoad() {				
-		if (tpj===undefined) { tpj = jQuery; if("<?php echo $noConflict; ?>" == "on") tpj.noConflict();}
-<?php		
+	tpj=jQuery;
+<?php if($noConflict == "on"){ ?>tpj.noConflict();<?php } ?>			
+<?php
+	echo 'tpj(document).ready(function() {'."\n";
 	echo '	if(tpj("#'.$this->sliderHtmlID.'").revolution == undefined){'."\n";
 	echo '		revslider_showDoubleJqueryError("#'.$this->sliderHtmlID.'");'."\n";
 	echo '	}else{'."\n";
@@ -5255,14 +5233,12 @@ var revapi<?php echo $sliderID; ?>,
 	if($this->slider->getParam("custom_javascript", '') !== ''){
 		echo str_replace('var counter = {val:doctop};', 'var counter = {val:(window.pageYOffset || document.documentElement.scrollTop)  - (document.documentElement.clientTop || 0)};', stripslashes($this->slider->getParam("custom_javascript", '')));
 	}
-	echo '	}; /* END OF revapi call */'."\n";
+	echo '	}'."\n";
 	echo '	';
 	do_action('revslider_fe_javascript_output', $this->slider, $this->sliderHtmlID);
 	echo ''."\n";
-		
+	echo '});	/*ready*/'."\n";
 	?>
- }; /* END OF ON LOAD FUNCTION */
-}()); /* END OF WRAPPING FUNCTION */
 </script>
 		<?php
 		if($js_to_footer && $this->previewMode == false && $markup_export == false){

