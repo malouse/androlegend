@@ -1,0 +1,8 @@
+2018-12-15T22:12:01+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\contact-form-7/includes/functions.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\contact-form-7\settings.php on line 3
+
+2018-12-15T22:23:02+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\contact-form-7/includes/functions.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\contact-form-7\settings.php on line 3
+
+2018-12-15T22:23:07+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\contact-form-7/includes/functions.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\contact-form-7\settings.php on line 3
+
+2018-12-15T22:23:08+00:00 CRITICAL require_once(): Failed opening required 'C:\wamp64\www\androlegend\wp-content\plugins\contact-form-7/includes/functions.php' (include_path='.;C:\php\pear') in C:\wamp64\www\androlegend\wp-content\plugins\contact-form-7\settings.php on line 3
+
