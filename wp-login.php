@@ -9,11 +9,11 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Log In &lsaquo; Andro Legend &#8212; WordPress</title>
 	<link rel='dns-prefetch' href='//s.w.org' />
-<link rel='stylesheet' id='dashicons-css'  href='/https://malouse.github.io/androlegend/wp-includes/css/dashicons.min.css?ver=5.0.2' type='text/css' media='all' />
-<link rel='stylesheet' id='buttons-css'  href='/https://malouse.github.io/androlegend/wp-includes/css/buttons.min.css?ver=5.0.2' type='text/css' media='all' />
-<link rel='stylesheet' id='forms-css'  href='/https://malouse.github.io/androlegend/wp-admin/css/forms.min.css?ver=5.0.2' type='text/css' media='all' />
-<link rel='stylesheet' id='l10n-css'  href='/https://malouse.github.io/androlegend/wp-admin/css/l10n.min.css?ver=5.0.2' type='text/css' media='all' />
-<link rel='stylesheet' id='login-css'  href='/https://malouse.github.io/androlegend/wp-admin/css/login.min.css?ver=5.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='http://localhost/https:/malouse.github.io/androlegend/wp-includes/css/dashicons.min.css?ver=5.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='buttons-css'  href='http://localhost/https:/malouse.github.io/androlegend/wp-includes/css/buttons.min.css?ver=5.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='forms-css'  href='http://localhost/https:/malouse.github.io/androlegend/wp-admin/css/forms.min.css?ver=5.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='l10n-css'  href='http://localhost/https:/malouse.github.io/androlegend/wp-admin/css/l10n.min.css?ver=5.0.2' type='text/css' media='all' />
+<link rel='stylesheet' id='login-css'  href='http://localhost/https:/malouse.github.io/androlegend/wp-admin/css/login.min.css?ver=5.0.2' type='text/css' media='all' />
 	<meta name='robots' content='noindex,noarchive' />
 	<meta name='referrer' content='strict-origin-when-cross-origin' />
 		<meta name="viewport" content="width=device-width" />
@@ -22,7 +22,7 @@
 		<div id="login">
 		<h1><a href="https://wordpress.org/" title="Powered by WordPress" tabindex="-1">Powered by WordPress</a></h1>
 	
-<form name="loginform" id="loginform" action="/https://malouse.github.io/androlegend/wp-login.php" method="post">
+<form name="loginform" id="loginform" action="http://localhost/https:/malouse.github.io/androlegend/wp-login.php" method="post">
 	<p>
 		<label for="user_login">Username or Email Address<br />
 		<input type="text" name="log" id="user_login" class="input" value="" size="20" /></label>
@@ -40,7 +40,7 @@
 </form>
 
 <p id="nav">
-	<a href="/https://malouse.github.io/androlegend/my-account/lost-password/">Lost your password?</a>
+	<a href="http://localhost/https:/malouse.github.io/androlegend/my-account/lost-password/">Lost your password?</a>
 </p>
 
 <script type="text/javascript">
@@ -57,7 +57,7 @@ wp_attempt_focus();
 if(typeof wpOnload=='function')wpOnload();
 </script>
 
-	<p id="backtoblog"><a href="/https://malouse.github.io/androlegend/">&larr; Back to Andro Legend</a></p>
+	<p id="backtoblog"><a href="http://localhost/https:/malouse.github.io/androlegend/">&larr; Back to Andro Legend</a></p>
 		
 	</div>
 
