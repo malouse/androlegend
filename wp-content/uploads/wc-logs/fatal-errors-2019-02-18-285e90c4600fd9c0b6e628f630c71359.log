@@ -1,0 +1,4 @@
+2019-02-18T11:41:30+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\wamp64\www\androlegend\wp-content\plugins\ali2woo\includes\libs\a2w_json_api\singletons\api.php on line 286
+
+2019-02-18T11:41:39+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in C:\wamp64\www\androlegend\wp-content\themes\techmarket\inc\admin\meta-boxes\class-techmarket-meta-box-home-v12.php on line 8
+
